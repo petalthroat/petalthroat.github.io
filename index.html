@@ -12,48 +12,103 @@
         }
         
         body {
-            background-color: #2a2a2a;
-            font-family: Arial, sans-serif;
-            color: #e0e0e0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             min-height: 100vh;
-            padding: 20px;
+            overflow: hidden;
+            background: #0a0a0a;
+        }
+        
+        .bg-image {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('assets/l.webp');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            z-index: 1;
+        }
+        
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.84);
+            z-index: 2;
         }
         
         .container {
+            position: relative;
+            z-index: 3;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
             max-width: 600px;
-            width: 100%;
+            margin: 0 auto;
         }
         
         .center-text {
-            font-size: 64px;
+            font-size: 72px;
             font-weight: 300;
             margin-bottom: 60px;
             text-align: center;
+            color: #ffffff;
+            animation: fadeIn 1s ease-out;
         }
         
         .links-container {
             display: flex;
             flex-direction: column;
             gap: 12px;
+            animation: fadeIn 1s ease-out 0.3s backwards;
         }
         
         .links-container a {
             color: #5b9bd5;
             text-decoration: none;
             font-size: 18px;
-            transition: color 0.2s;
+            transition: all 0.3s ease;
         }
         
         .links-container a:hover {
             color: #7bb5e8;
             text-decoration: underline;
+            transform: translateX(5px);
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .center-text {
+                font-size: 48px;
+            }
+            
+            .links-container a {
+                font-size: 16px;
+            }
         }
     </style>
 </head>
 <body>
+    <div class="bg-image"></div>
+    <div class="overlay"></div>
+    
     <div class="container">
         <div class="center-text">
             petalthroat
@@ -63,8 +118,8 @@
             <a href="https://www.youtube.com/@petalthroat">youtube</a>
             <a href="https://petalthroat.newgrounds.com/">newgrounds</a>
             <a href="https://petalthroat.bandcamp.com">bandcamp</a>
-            <a href="https://soundcloud.com/petalthroat">twitter</a>
-            <a href="https://soundcloud.coat">soundcloud</a>
+            <a href="https://x.com/petalthroat">twitter</a>
+            <a href="https://soundcloud.com/petalthroat">soundcloud</a>
             <a href="mailto:petalthroat@duck.com">email</a>
         </div>
     </div>
